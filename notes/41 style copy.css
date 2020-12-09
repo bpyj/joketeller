@@ -1,0 +1,79 @@
+/* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
+
+body {
+  margin: 0px;
+  background: #45badd;
+}
+
+.container {
+  /* border: 1px solid black; */
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./robot.gif");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/*003-- next, we are going to start styling our button. so back up above our media query here. and we can add the button. curly brackets. and the first thing we are going to add is cursor pointer. so you can see that it autocompletes here if we press tab twice. this will allow the cursor to change to a hand, instead of the default cursor when the user hovers over the button. next, we are going to add outline none. so normally, when you click on a button, you will have a blue outline. and we want to eliminate that. we want to just have our own styles on the button. 
+
+for this specific button, now, we are going to start by adjusting the width. which is 200px. and we are going to add a height of 50px. then, we are going to change the font-family. so keep in mind for buttons, that you will always need to explicitly state the font family inside. you can just state it within the body. and so we are going to use one of the suggestions here. which is courier new, courier, and monospace. the reason i chose this is because they will work on windows and mac. they are very standard fonts. below that, we can change the font-size to make it a little bit bigger. 20px. we will make the color of the font white. then, we are going to change the background of the button. again, i have a very specific # hastag in mind. that is the pink of the robot. so #ff3482. so thats looking great. 
+
+we want to actually get rid of that white border. so we are going to say border: none. then we are going to add a border radius for rounded corners. 5px. i find that it helps make everything more modern. and the last thing we are going to add is a box-shadow. so i find that this is also a very helpful way to seperate elements from the background. so, there are 5 different values that we are going to enter here. the first one is the horizontal offset. so that means the shadow will go 2px to the right. next is the vertical offset. will go 2px to the down. the next one is the blur. which is how far out the blur of the shadow will go. and the last one is the spread. which will put 10px. and that is how far out the whole shadow will spread from the element. lastly, we are going to add in the color. we are going to use a rgba value, which stands for red green blue alpha. and this will actually allow us to change the opacity of the shadow a little bit more. so in this case we want a black shadow, so it will be 0,0,0. alpha value 0.2. ok, so you can see that its a very subtle shadow. we are actually going to add little bit of a shadow into our mobile version than we will need on our desktop version. -- 004*/
+
+button {
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  height: 50px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  color: white;
+  background: #ff3482;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 005 -- now lets go on to styling the button when the user is interacting with it. so to do that, we are going to be using what is called the pseudo class. so a pseudo class is something that will style an element, when a given event or state has occured. so in this case, we can initiate it by targeting our button. with a colon. and then adding a pseudo class in this case of 'hover'. so this means it will change the styling for the button when we hover over it. so i just want to change the color slightly. to give the user some feedback. we can accomplish this by using filter. and then brightness. and then we are going to change the brightness to 95%. so that means its going to get 5% darker when i hover over it. you can see its very subtle. but its nice to give the users some visual feedback. 
+
+second, we are going to add the 'active' pseudo class to the button. and inside of this, we are going to transform and then scale our button down, to 0.98. so that means our button will be 2% smaller. when we click it. so you can see its almost like its being pressed in. ok very cool. and the very last pseudo class we are going to have, is for disabled. so when this button is disabled, we want to make it darker. and we want to change the cursor to be the default cursor. to show that the user they can't quite click on it. so in this case, cursor: default is what we want. and we want to filter with a brightness this time of just 30%. so we cant see this right now. but we can see this in our javascript when we start disabling our button. thats pretty much if for our styling. i think its looking a lot better. we are not going to bother styling our audio element. because in the final version of the project im going to be removing it. but other than that, we are done with the styling for now. and lets jump into the functionality in the next video --- end*/
+
+button:hover {
+  filter: brightness(95%);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  cursor: default;
+  filter: brightness(30%);
+}
+
+/* 002 -- so first, we are going to comment our a title for this. it would be Media Query. for tablet or for smaller. and now to the media query itself. we are going to add '@' sign, and then media. we specifically want to target screens, and we want to specifically target screens that have a max-width: of less than 1000px. and we are going to add curly brackets. and inside of this, we are going to pick a class or element that we want to target. in this case, we are going to target our container. then we have another set of curly brackets. and inside of there, we are going to start by changing our background size property. and we are going to make this cover. lets see what happens. Ok, so our robot is bigger, but we can see that its not in the center. 
+
+so in order to change that, we are also going to target our background-position, and we are going to make it center, and center. and that is looking a lot better. perfect. --003*/
+
+/* 004 -- so lets go ahead and add that now. so in our media query here, we are going to target our button element. and we are going to change our box shadow up a little bit here. its going to be 5px 5px 30px 20px. rgba(0,0,0,0.5). so you can see we have more of a dramatic shadow here. which is important for the mobile version because we have the button centered over the robot here. whereas on the desktop the robot is more on the side, so we want more of a subtle box shadow for that. 005 */
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width: 1000px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+
+  button {
+    box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
+  }
+}

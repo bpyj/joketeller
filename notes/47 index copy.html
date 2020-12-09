@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke Teller</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="button">Tell Me A Joke</button>
+      <audio id="audio" controls hidden></audio>
+    </div>
+    <!-- Script -->
+
+    <script src="script.js"></script>
+    <script src="voice.js"></script>
+  </body>
+</html>
+
+<!-- 002 -- in this script, lets call it voice.js. and voice.js, will be a new file that we create. in my case i have already created it here. its completely empty. but i am going to copy this code 'const VoiceRss= ...'. and paste it in here.  Just remove the comments. --003 voice.js-->
+
+<!-- 003 - so now theres a voice RSS. and if i save this. again this is commented out in script.js. if i save this and run, refresh and run. you can see that its working. why is that working? if we open up our developer tools hre. lets go view developer tools. in our chrome browser. and we go to network. if i refresh this page. you see here i have documents selected. we want to make sure ALL is selected. we see that we have our script.js that loads up. but right before that we have voice.js. so what that means is that voice.js file has loaded before our script runs. what that means is that voice.js has loaded before our script runs. -->
+
+<!-- before this script.js runs, voice.js runs. and because this 'const VoiceRSS....' is a global variable, its not inside of a function or inside of a object. we have access to voiceRSS. let me prove it to you. if i go over here and i do voiceRSS, i have access to this. this is exactly what we had in our code. and this is because its a global variable. so as long as the 'voice js' loads before 'script js', we are able to use the global variable voiceRSS.  -->
+
+<!-- so now i can actually test this. if i move this line 'voice js' to down here. will that work? that worked. but hold on. you are asking yourself. you just told me this code shouldnt work, i mean voice js got loaded after script js. pause and think about why did that still work. well lets go to script.js. when we call voiceRSS.speech(), its when we do the tellme(joke). so in here, we actually use the tellMe(joke) when we do the getJokes() function. and the getJokes() only runs when i click, as a user, on the tell me a joke button. so, because by the time i click the button, the voiceRSS has been loaded, that worked. -->
+
+<!-- but if i tried to lets say console.log(voiceRSS) before i even click, when the script.js initially runs, lets save. and i refresh. i get an error. voiceRSS is not defined. because remember, when we first load a project, our scripts run. my script.js and then my voice.js runs. but script.js, becuase it runs before voice.js, well, gets an error. because this voice RSS does not exists yet.  -->
+
+<!-- what we've just done here, is we've cleaned up our code a little bit. we dont neccessarily need to use voiceRSS, this giant piece of code, which we've kept on a single line in this file. we can just simply have libraries of javascript files. that we load up before our main script file that we write runs. so in this way we are able to seperate our logic. so that instead of having one big javascript file, we can be more organized with our code.  -->
+
+<!-- now, the second thing that i want to talk about is this API key. this API key is what we call a secret. this is valuable. you see, most apis, although this is a silly one, most apis that are useful costs money. most companies create this APIs so that they can make money. their business is from having users who pay money to access this some sort of data. now when we have an API key out in public like this, you dont really want to share that.  -->
+
+<!-- cos right now, this API key is available to anybody in the world. so anybody can just copy and steal your API key and use it. let me show you. this website, if we put it online, how can i find the API key in this code? i will go to sources, go to script.js, and if i scroll up, theres the API key right there. i can even do this on a website that i am visiting. lets say i can go to 'view page source', which gives me the html. and if i click on script.js, there it is. thats the entire script. and theres my API key.  -->
+
+<!-- so in practise, you never actually want to display an API key on the front end. this is a fun application, fun API, so it doesnt really matter. but if you are putting your code on github, you wouldnt want to include this in here. or lets say you are paying for an API. you definitely wouldnt want anybody else to find out about it. -->
+
+<!-- the way that is resolved is usually using some sort of a server. so you would create your own server. or have a server that a client or a user can see, and we instead grab the key, and instead run the tellme() function. so that its this function over here tellMe() which requires the API key. We run it on the server. in this way the server is hidden from my users. and because only we have acces to the server, we can use the API key. and then respond from the server, to our front end, with just the voiceRSS, the actual data that doesnt include the API key. now this is an advanced topic, so we dont really need to get into it. but i do want to mention it. when it comes to API key, you usually never want it on the front end.   -->

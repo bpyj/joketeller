@@ -1,0 +1,32 @@
+/* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
+
+body {
+  margin: 0px;
+  background: #45badd;
+}
+
+/* 005 -- ok so below this, we can target our .container. to target our container class. and inside of that, we are going to start with the height. which we are going to use a 100vh, which stands for viewport height. and we are also going to do width, a 100vw.which is the viewport width. so the reason we are using this and not pixels and percentages, its just a way to dynamically scale our project based on the size of the viewport or the size of the window. means the same thing. ok, moving on, we are going to use flex box. by typing display, then flex. and we are going to use this, in order to do a couple of things. the first thing will be, we are going to justify our content. center. you can see that its autocompleting. and align items, center as well. and that is going to align our items horizontally and vertically respectively. */
+
+/*for now, because we have 2 elements, we can also change the flex direction to be column. so the reason for that is, when we have 2 items, we want to go top bottom, not left right. so we can save that and check it out. ok perfect. so everything is centered. and we have everything going top bottom. instead of left right. alright, so thats a pretty good start. the last thing we need to do is to set up another background property, where we are passing in the robot gif -- 006*/
+
+/* 006 -- so lets jump back. so below this, we are going to start with a background property, and we are going to use a url, and then single quotes, period, forward slash, and then you can see it autocompletes for us. if we hover over 'robot' and press enter. so thats the path for our local file. below that, we want to actually adjust things a little bit. so we want our background size to be 'contain'. so that means that the image will be fully visible on the screen. thats the idea behind that. next, we are going to set the background position. and that is going to be 'left center'. so left, the first property is the horizontal property, and center here, is the vertical property. so that means it will be this part of the page, but to the left. and lastly, we are going to use background repeat. and no repeat. so we only want it to happen once. so we can save that and jump back over. and perfect. so you can see that we have our robot slightly to the left, but still centered vertically. excellent! we will later jump back in to fix our button styling as well as adding mobile responsiveness to the project. --end   */
+
+.container {
+  /* border: 1px solid black; */
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./robot.gif");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/* 004 -- to add color to our background, as well as our robot gif. so in our css, we are going to start with our body. so body curly brackets, enter. we are going to start by eliminating the margins. so there is this 10px margin around every body element. get rid of that. so that our background color goes all the way to the edges. so in this case i have a very specific color in mind. the hex code is #45BADD. so this is just the same background as the gif. so i just pulled out that color. and lets save that and jump back. ok. so thats already looking a little bit better. we have our background color going here. now we are going to go back and start styling the container for our objects. -- 005*/
